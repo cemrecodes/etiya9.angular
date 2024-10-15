@@ -13,10 +13,17 @@ export class TodoListComponent {
   newTodo: string = '';
 
   addTodo() {
-    if (this.newTodo.trim()) {
-      this.todos.push(this.newTodo);
-      this.newTodo = '';
+    let trimmedTodo = this.newTodo.trim();
+    if (trimmedTodo) {
+      if(this.todos.includes(trimmedTodo)){
+        alert("This todo already exists.");
+      }
+      else{
+        this.todos.push(this.newTodo);
+        this.newTodo = '';
+      }
     }
+
   }
 
   removeTodo(index: number) {
