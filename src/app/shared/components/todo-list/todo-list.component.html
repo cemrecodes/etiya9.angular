@@ -1,0 +1,22 @@
+<p>todo-list works!</p>
+
+<form (ngSubmit)="addTodo()">
+  <input 
+    type="text" 
+    [(ngModel)]="newTodo" 
+    placeholder="Yeni todo ekle" 
+    [ngModelOptions]="{standalone: true}"
+    required />
+  <button type="submit">Ekle</button>
+</form>
+
+
+<ul>
+    
+    @for(todo of todos; track todo; let i = $index){
+      <li>
+        {{ i + 1 }}. {{ todo }} 
+        <button (click)="removeTodo(i)">X</button>
+      </li>
+    }
+</ul>

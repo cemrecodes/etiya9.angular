@@ -1,0 +1,23 @@
+<p>navbar works!</p>
+
+<p>count: {{ count }}</p>
+
+<button (click)="increaseCount()">+</button>
+<button (click)="decreaseCount()">-</button>
+
+<input placeholder={{name}} (keyup)="onNameChange($event)"/>
+<p>{{name}}</p>
+
+<input placeholder="Soyad" [(ngModel)]="surname"/>
+<p>{{ surname }}</p>
+
+<p>*****LİSTE*****</p>
+<ul>
+    @for(song of songs; track song){
+    <li>{{ song }}</li>
+    }
+    <!--<li *ngFor="let song of songs">{{ song }}</li>-->
+</ul>
+<ul>
+
+</ul>
