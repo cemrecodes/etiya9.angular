@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-body">
+     <h5 class="card-title">{{ toDoFromOtherPage?.title }}</h5>
+      <div class="col-md-6">
+        <p class="card-text"><strong>User ID:</strong> {{ toDoFromOtherPage?.userId }}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="card-text"><strong>Completed? </strong> {{ toDoFromOtherPage?.completed ? '✓ ' : 'X' }}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="card-text"><strong>ID:</strong> {{ toDoFromOtherPage?.id }}</p>
+      </div>
+      <div class="col-md-6">
+        <a class="btn btn-primary" (click)="onRemove()">Kaldır</a>
+      </div>
+  </div>
+</div>

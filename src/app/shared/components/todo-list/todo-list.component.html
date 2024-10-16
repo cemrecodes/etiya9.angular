@@ -1,22 +1,58 @@
-<p>todo-list works!</p>
+<div class="container" style="margin-bottom: 1%;">
+  <p>todo-list works!</p>
+  <form (ngSubmit)="add()">
+    <div class="row">
+      <div class="col-md-2">
+        <input 
+          type="number" 
+          [(ngModel)]="newTodo.id" 
+          placeholder="Todo ID" 
+          [ngModelOptions]="{standalone: true}" 
+          required />
+      </div>
+      <div class="col-md-2">
+        <input 
+          type="text" 
+          [(ngModel)]="newTodo.title" 
+          placeholder="Todo title" 
+          [ngModelOptions]="{standalone: true}" 
+          required />
+      </div>
+      <div class="col-md-2">
+        <input 
+          type="number" 
+          [(ngModel)]="newTodo.userId" 
+          placeholder="User ID" 
+          [ngModelOptions]="{standalone: true}" 
+          required />
+      </div>
+    <div class="col-md-2">
+      <label>
+        Completed?
+        <input 
+          type="checkbox" 
+          [(ngModel)]="newTodo.completed" 
+          [ngModelOptions]="{standalone: true}" />
+      </label>
+    </div>
+    <div class="col-md-2">  
+      <button class="btn btn-primary" type="submit">Ekle</button>
+    </div>
+  </div>
+  </form>
+</div>
 
-<form (ngSubmit)="addTodo()">
-  <input 
-    type="text" 
-    [(ngModel)]="newTodo" 
-    placeholder="Yeni todo ekle" 
-    [ngModelOptions]="{standalone: true}"
-    required />
-  <button type="submit">Ekle</button>
-</form>
-
-
-<ul>
-    
-    @for(todo of todos; track todo; let i = $index){
-      <li>
-        {{ i + 1 }}. {{ todo }} 
-        <button (click)="removeTodo(i)">X</button>
-      </li>
+<div class="container">
+  <div class="row">
+    @for(todo of toDoListFromBackend; track todo.id) {
+      <div class="col-md-3">
+        <app-todo-card
+            [toDoFromOtherPage]="todo"
+            (onRemoveClick)="remove(todo.id)"
+          />
+    </div>
+    } @empty {
+    <p>Henüz bir todo eklemediniz.</p>
     }
-</ul>
+  </div>
+</div>
